@@ -1,5 +1,5 @@
 # Project1
-#✨ DENTITION  ✨
+✨ DENTITION ✨
 
 This is a web based application developed for healthcare and it is named as DENTITION.
 
