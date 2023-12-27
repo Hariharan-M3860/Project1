@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -13,10 +13,18 @@
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
     <style>
-        /* Style for highlighted search term */
-        mark {
+        .highlightedText {
             background-color: yellow;
-            color: black;
+        }
+
+        #upArrow,
+        #downArrow {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
         }
     </style>
 </head>
@@ -50,11 +58,10 @@
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
+                    <!-- Modified Search Bar -->
                     <form id="searchForm" class="d-flex search-header">
-                        <input class="form-control" type="search" placeholder="Enter Keyword..." aria-label="Search"
-                            required>
-                        <button class="btn btn-style" type="button" onclick="performSearch()"><i
-                                class="fas fa-search"></i></button>
+                        <input id="searchInput" class="form-control" type="search" placeholder="Search within the page..." aria-label="Search" required>
+                        <button class="btn btn-style" type="button" onclick="searchWithinPage()"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <!-- toggle switch for light and dark theme -->
@@ -77,41 +84,89 @@
     </header>
     <!-- //header -->
 
-    <!-- Your other HTML content -->
-    <!-- ... -->
-
-    <!-- JavaScript for search functionality -->
+    <!-- JavaScript for the Search Functionality -->
     <script>
-        function performSearch() {
-            const searchTerm = document.querySelector('#searchForm input[type="search"]').value.toLowerCase();
-            const content = document.body.innerText.toLowerCase();
+        function searchWithinPage() {
+            var searchText = document.getElementById("searchInput").value.trim();
 
-            if (content.includes(searchTerm)) {
-                const regex = new RegExp(searchTerm, 'g');
-                const matches = content.match(regex);
-                const firstMatchIndex = content.indexOf(searchTerm);
+            if (searchText !== "") {
+                var content = document.body.textContent || document.body.innerText;
+                var searchTerm = new RegExp(searchText, "gi"); // Create a regular expression for global and case-insensitive search
 
-                // Scroll to the first occurrence
-                window.scrollTo(0, document.body.innerHTML.indexOf(matches[0]));
+                var matches = content.match(searchTerm);
 
-                // Highlight the occurrences
-                const highlightedContent = content.replace(regex, `<mark>${searchTerm}</mark>`);
-                document.body.innerHTML = highlightedContent;
+                if (matches) {
+                    var count = matches.length;
 
-                // Inform the user about the number of matches found
-                alert(`Found ${matches.length} matches.`);
+                    // Highlight the matches using a CSS class
+                    document.body.innerHTML = document.body.innerHTML.replace(searchTerm, '<span class="highlightedText">$&</span>');
+
+                    alert("Found " + count + " matches.");
+                    scrollToFirstMatch(searchTerm);
+                } else {
+                    alert("No matches found.");
+                    hideNavigationArrows();
+                }
             } else {
-                alert('No matches found.');
+                alert("Please enter a search term.");
+            }
+
+            return false; // Prevent form submission from changing the URL
+        }
+
+        function scrollToFirstMatch(searchTerm) {
+            var allMatches = document.querySelectorAll('.highlightedText');
+
+            if (allMatches.length > 0) {
+                var firstMatch = allMatches[0];
+                var position = firstMatch.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+
+                showNavigationArrows();
             }
         }
-    </script>
 
-    <!-- Your other scripts and closing tags -->
-    <!-- ... -->
+        function showNavigationArrows() {
+            document.getElementById('upArrow').style.display = 'block';
+            document.getElementById('downArrow').style.display = 'block';
+        }
+
+        function hideNavigationArrows() {
+            document.getElementById('upArrow').style.display = 'none';
+            document.getElementById('downArrow').style.display = 'none';
+        }
+
+        document.getElementById('upArrow').addEventListener('click', function () {
+            window.scrollBy(0, -window.innerHeight / 2);
+        });
+
+        document.getElementById('downArrow').addEventListener('click', function () {
+            window.scrollBy(0, window.innerHeight / 2);
+        });
+
+        // Navigate to first search result on page load
+        window.onload = function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var searchTerm = urlParams.get('search');
+            if (searchTerm) {
+                document.getElementById('searchInput').value = searchTerm;
+                searchWithinPage();
+            }
+        };
+    </script>
+    <!-- End of JavaScript for the Search Functionality -->
+
+    <!-- Scroll navigation arrows -->
+    <div id="upArrow">&#8593;</div>
+    <div id="downArrow">&#8595;</div>
+    <!-- End of Scroll navigation arrows -->
 </body>
 
 </html>
-
 
     <!-- inner banner -->
     <section class="inner-banner py-5">
