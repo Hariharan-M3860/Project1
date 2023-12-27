@@ -53,4 +53,4 @@ https://hariharan-m3860.github.io/Project1/
 - HTML
 - CSS
 - Bootstrap
-- JavaScriptp
+- JavaScript
