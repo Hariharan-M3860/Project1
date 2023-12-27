@@ -1,5 +1,5 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,6 +12,13 @@
         rel="stylesheet">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    <style>
+        /* Style for highlighted search term */
+        mark {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,14 +50,40 @@
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
-                    <form action="#error" method="GET" class="d-flex search-header">
+                    <form id="searchForm" class="d-flex search-header">
                         <input class="form-control" type="search" placeholder="Enter Keyword..." aria-label="Search"
                             required>
-                        <button class="btn btn-style" type="submit"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-style" type="button" onclick="performSearch()"><i
+                                class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!-- //header -->
 
-                        <script>
+    <!-- Your other HTML content -->
+    <!-- ... -->
+
+    <!-- JavaScript for search functionality -->
+    <script>
         function performSearch() {
-            const searchTerm = document.querySelector('.form-control').value.toLowerCase();
+            const searchTerm = document.querySelector('#searchForm input[type="search"]').value.toLowerCase();
             const content = document.body.innerText.toLowerCase();
 
             if (content.includes(searchTerm)) {
@@ -72,31 +105,13 @@
             }
         }
     </script>
+
+    <!-- Your other scripts and closing tags -->
+    <!-- ... -->
 </body>
 
 </html>
-                    </form>
-                
-                </div>
-                <!-- toggle switch for light and dark theme -->
-                <div class="cont-ser-position">
-                    <nav class="navigation">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="mode-container">
-                                    <i class="gg-sun"></i>
-                                    <i class="gg-moon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </nav>
-                </div>
-                <!-- //toggle switch for light and dark theme -->
-            </nav>
-        </div>
-    </header>
-    <!-- //header -->
+
 
     <!-- inner banner -->
     <section class="inner-banner py-5">
