@@ -48,6 +48,33 @@
                             required>
                         <button class="btn btn-style" type="submit"><i class="fas fa-search"></i></button>
                     </form>
+                    <script>
+        function performSearch() {
+            const searchTerm = document.querySelector('.form-control').value.toLowerCase();
+            const content = document.body.innerText.toLowerCase();
+
+            if (content.includes(searchTerm)) {
+                const regex = new RegExp(searchTerm, 'g');
+                const matches = content.match(regex);
+                const firstMatchIndex = content.indexOf(searchTerm);
+
+                // Scroll to the first occurrence
+                window.scrollTo(0, document.body.innerHTML.indexOf(matches[0]));
+
+                // Highlight the occurrences
+                const highlightedContent = content.replace(regex, `<mark>${searchTerm}</mark>`);
+                document.body.innerHTML = highlightedContent;
+
+                // Inform the user about the number of matches found
+                alert(`Found ${matches.length} matches.`);
+            } else {
+                alert('No matches found.');
+            }
+        }
+    </script>
+</body>
+
+</html>
                 </div>
                 <!-- toggle switch for light and dark theme -->
                 <div class="cont-ser-position">
