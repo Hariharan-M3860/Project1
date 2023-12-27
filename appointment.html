@@ -17,6 +17,9 @@
         <label for="date">Preferred Date:</label>
         <input type="date" id="date" name="date" required><br><br>
         
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+        
         <label for="message">Additional Information:</label><br>
         <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
         
@@ -27,8 +30,6 @@
 
     <script>
         function submitAppointment() {
-            // You can perform validation here if needed
-
             // Hide the form
             document.getElementById("appointmentForm").style.display = "none";
 
