@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment Submission</title>
+</head>
+<body>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $fullName = $_POST["fullName"];
+    $email = $_POST["email"];
+    $preferredDate = $_POST["preferredDate"];
+    $preferredTime = $_POST["preferredTime"];
+    $message = $_POST["message"];
+    
+    // Here, you can process the data, save it to a database, send emails, etc.
+    // For demonstration, let's just display a success message
+    echo "<h2>Successfully Submitted</h2>";
+    echo "<p>Thank you, $fullName, for booking an appointment!</p>";
+} else {
+    echo "<h2>Error: Method Not Allowed</h2>";
+    echo "<p>Form submission method not allowed.</p>";
+}
+?>
+
+</body>
+</html>
