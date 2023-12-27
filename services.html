@@ -1,7 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
 <!doctype html>
 <html lang="en">
 
@@ -9,12 +5,27 @@ Author URL: http://w3layouts.com
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dentition - Medical Category Bootstrap Responsive Website Template - Services </title>
+    <title>Dentition - Medical Category Bootstrap Responsive Website Template - Services</title>
     <!-- google font -->
     <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    <style>
+        .highlightedText {
+            background-color: yellow;
+        }
+
+        #upArrow,
+        #downArrow {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,10 +57,10 @@ Author URL: http://w3layouts.com
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
-                    <form action="#error" method="GET" class="d-flex search-header">
-                        <input class="form-control" type="search" placeholder="Enter Keyword..." aria-label="Search"
-                            required>
-                        <button class="btn btn-style" type="submit"><i class="fas fa-search"></i></button>
+                    <!-- Modified Search Bar -->
+                    <form id="searchForm" class="d-flex search-header">
+                        <input id="searchInput" class="form-control" type="search" placeholder="Search within the page..." aria-label="Search" required>
+                        <button class="btn btn-style" type="button" onclick="searchWithinPage()"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
                 <!-- toggle switch for light and dark theme -->
@@ -71,6 +82,91 @@ Author URL: http://w3layouts.com
         </div>
     </header>
     <!-- //header -->
+
+    <!-- JavaScript for the Search Functionality -->
+    <script>
+        function searchWithinPage() {
+            var searchText = document.getElementById("searchInput").value.trim();
+
+            if (searchText !== "") {
+                var content = document.body.textContent || document.body.innerText;
+                var searchTerm = new RegExp(searchText, "gi"); // Create a regular expression for global and case-insensitive search
+
+                var matches = content.match(searchTerm);
+
+                if (matches) {
+                    var count = matches.length;
+
+                    // Highlight the matches using a CSS class
+                    document.body.innerHTML = document.body.innerHTML.replace(searchTerm, '<span class="highlightedText">$&</span>');
+
+                    alert("Found " + count + " matches.");
+                    scrollToFirstMatch(searchTerm);
+                } else {
+                    alert("No matches found.");
+                    hideNavigationArrows();
+                }
+            } else {
+                alert("Please enter a search term.");
+            }
+
+            return false; // Prevent form submission from changing the URL
+        }
+
+        function scrollToFirstMatch(searchTerm) {
+            var allMatches = document.querySelectorAll('.highlightedText');
+
+            if (allMatches.length > 0) {
+                var firstMatch = allMatches[0];
+                var position = firstMatch.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+
+                showNavigationArrows();
+            }
+        }
+
+        function showNavigationArrows() {
+            document.getElementById('upArrow').style.display = 'block';
+            document.getElementById('downArrow').style.display = 'block';
+        }
+
+        function hideNavigationArrows() {
+            document.getElementById('upArrow').style.display = 'none';
+            document.getElementById('downArrow').style.display = 'none';
+        }
+
+        document.getElementById('upArrow').addEventListener('click', function () {
+            window.scrollBy(0, -window.innerHeight / 2);
+        });
+
+        document.getElementById('downArrow').addEventListener('click', function () {
+            window.scrollBy(0, window.innerHeight / 2);
+        });
+
+        // Navigate to first search result on page load
+        window.onload = function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var searchTerm = urlParams.get('search');
+            if (searchTerm) {
+                document.getElementById('searchInput').value = searchTerm;
+                searchWithinPage();
+            }
+        };
+    </script>
+    <!-- End of JavaScript for the Search Functionality -->
+
+    <!-- Scroll navigation arrows -->
+    <div id="upArrow">&#8593;</div>
+    <div id="downArrow">&#8595;</div>
+    <!-- End of Scroll navigation arrows -->
+</body>
+
+</html>
+
 
     <!-- inner banner -->
     <section class="inner-banner py-5">
