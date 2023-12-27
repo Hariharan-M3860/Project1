@@ -16,6 +16,16 @@
         .highlightedText {
             background-color: yellow;
         }
+
+        #upArrow,
+        #downArrow {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
     </style>
 </head>
 
@@ -91,8 +101,10 @@
                     document.body.innerHTML = document.body.innerHTML.replace(searchTerm, '<span class="highlightedText">$&</span>');
 
                     alert("Found " + count + " matches.");
+                    showNavigationArrows();
                 } else {
                     alert("No matches found.");
+                    hideNavigationArrows();
                 }
             } else {
                 alert("Please enter a search term.");
@@ -100,8 +112,32 @@
 
             return false; // Prevent form submission from changing the URL
         }
+
+        function showNavigationArrows() {
+            document.getElementById('upArrow').style.display = 'block';
+            document.getElementById('downArrow').style.display = 'block';
+        }
+
+        function hideNavigationArrows() {
+            document.getElementById('upArrow').style.display = 'none';
+            document.getElementById('downArrow').style.display = 'none';
+        }
+
+        document.getElementById('upArrow').addEventListener('click', function () {
+            window.scrollBy(0, -window.innerHeight / 2);
+        });
+
+        document.getElementById('downArrow').addEventListener('click', function () {
+            window.scrollBy(0, window.innerHeight / 2);
+        });
+
     </script>
     <!-- End of JavaScript for the Search Functionality -->
+
+    <!-- Scroll navigation arrows -->
+    <div id="upArrow">&#8593;</div>
+    <div id="downArrow">&#8595;</div>
+    <!-- End of Scroll navigation arrows -->
 </body>
 
 </html>
