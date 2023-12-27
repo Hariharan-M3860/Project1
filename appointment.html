@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Schedule an Appointment</title>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <!-- Your CSS styles and other meta tags -->
 </head>
 <body>
-  <h1>Schedule an Appointment</h1>
-  <form action="/submit_appointment" method="post">
-    <label for="fullname">Full Name:</label>
-    <input type="text" id="fullname" name="fullname" required><br><br>
+    <h1>Book an Appointment</h1>
+    <form id="appointmentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="message">Additional Information:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="button" value="Submit" onclick="submitAppointment()">
+    </form>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
+    <p id="successMessage" style="display: none;">Successfully you have booked your appointment</p>
 
-    <label for="phone">Phone:</label>
-    <input type="tel" id="phone" name="phone" required><br><br>
+    <script>
+        function submitAppointment() {
+            // You can perform validation here if needed
 
-    <label for="date">Preferred Date:</label>
-    <input type="date" id="date" name="date" required><br><br>
+            // Hide the form
+            document.getElementById("appointmentForm").style.display = "none";
 
-    <label for="time">Preferred Time:</label>
-    <input type="time" id="time" name="time" required><br><br>
-
-    <label for="message">Additional Message:</label><br>
-    <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-
-    <input type="submit" value="Submit">
-  </form>
+            // Show the success message
+            document.getElementById("successMessage").style.display = "block";
+        }
+    </script>
 </body>
 </html>
