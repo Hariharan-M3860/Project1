@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -34,15 +34,55 @@
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <!-- ... (Your existing navbar code) ... -->
-                <!-- Modified Search Bar -->
-                <form id="searchForm" class="d-flex search-header">
-                    <input id="searchInput" class="form-control" type="search" placeholder="Search within the page..." aria-label="Search" required>
-                    <button class="btn btn-style" type="button" onclick="searchWithinPage()"><i class="fas fa-search"></i></button>
-                </form>
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-tooth"></i>Dentition
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto me-2 my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <!-- Modified Search Bar -->
+                    <form id="searchForm" class="d-flex search-header">
+                        <input id="searchInput" class="form-control" type="search" placeholder="Search within the page..." aria-label="Search" required>
+                        <button class="btn btn-style" type="button" onclick="searchWithinPage()"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="cont-ser-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
             </nav>
         </div>
     </header>
+    <!-- //header -->
 
     <!-- JavaScript for the Search Functionality -->
     <script>
@@ -108,6 +148,15 @@
             window.scrollBy(0, window.innerHeight / 2);
         });
 
+        // Navigate to first search result on page load
+        window.onload = function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var searchTerm = urlParams.get('search');
+            if (searchTerm) {
+                document.getElementById('searchInput').value = searchTerm;
+                searchWithinPage();
+            }
+        };
     </script>
     <!-- End of JavaScript for the Search Functionality -->
 
@@ -118,7 +167,6 @@
 </body>
 
 </html>
-
 
 
     <!-- banner section -->
