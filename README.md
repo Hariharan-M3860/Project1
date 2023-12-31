@@ -72,7 +72,7 @@ https://hariharan-m3860.github.io/Project1/
 ![Screenshot 2023-12-19 122840](https://github.com/Hariharan-M3860/Project1/assets/152625411/d275ec19-de14-487d-b94e-9447b80ab877)
 
 ### Search Functionality - 
-- We need to press the search button next to the search bar instead of pressing enter button on keyboard
+- **We need to press the search button next to the search bar instead of pressing enter button on keyboard**
 ![Screenshot 2023-12-27 210057](https://github.com/Hariharan-M3860/Project1/assets/152625411/74dd6eab-aaff-417b-a41f-68651c9b76da)
 
 ### Services page -
