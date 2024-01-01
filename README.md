@@ -5,6 +5,7 @@ This is a web based application developed for healthcare and it is named as DENT
 
 ### This web based healthcare application has been developed for the accomplishment of Microsoft Future Ready Talent Internship program
 
+### Kindly click on the project url given below (through Azure or Github) to access my project website. Please do reload the website if any functionality is not working. I've checked it thoroughly at my side and it is working as I have demonstrated in my project video. So, kindly reload the page to solve any issues.
 
 **Project Link** - (Both the URL leads to the same website)
 ## Azure Static Web App Hosting URL:
