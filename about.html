@@ -148,20 +148,25 @@
             window.scrollBy(0, window.innerHeight / 2);
         });
 
-        // Navigate to first search result on Enter key press
-        document.getElementById('searchInput').addEventListener('keyup', function (event) {
-            if (event.key === 'Enter') {
-                searchWithinPage();
-            }
-        });
-
         // Navigate to first search result on page load
         window.onload = function () {
             var urlParams = new URLSearchParams(window.location.search);
             var searchTerm = urlParams.get('search');
             if (searchTerm) {
                 document.getElementById('searchInput').value = searchTerm;
-                search
+                searchWithinPage();
+            }
+        };
+    </script>
+    <!-- End of JavaScript for the Search Functionality -->
+
+    <!-- Scroll navigation arrows -->
+    <div id="upArrow">&#8593;</div>
+    <div id="downArrow">&#8595;</div>
+    <!-- End of Scroll navigation arrows -->
+</body>
+
+</html>
 
     <!-- inner banner -->
     <section class="inner-banner py-5">
