@@ -13,7 +13,7 @@ https://nice-pebble-0ff150d00.4.azurestaticapps.net/index.html?#url
 ## Github live site URL:
 https://hariharan-m3860.github.io/Project1/
 
-**Demo Video** -  
+**Demo Video (Latest Video)** -  https://youtu.be/NLI9xRM30ag
 
 ## Azure technologies used for this project:
 - Static Web Apps
@@ -71,9 +71,16 @@ https://hariharan-m3860.github.io/Project1/
 ### Home page -   
 ![Screenshot 2023-12-19 122840](https://github.com/Hariharan-M3860/Project1/assets/152625411/d275ec19-de14-487d-b94e-9447b80ab877)
 
+![Screenshot 2024-01-01 200509](https://github.com/Hariharan-M3860/Project1/assets/152625411/925c32af-85a8-4e04-a1ad-023bc8558779)
+
+
 ### Search Functionality - 
 - **We need to press the search button next to the search bar instead of pressing enter button on keyboard**
 ![Screenshot 2023-12-27 210057](https://github.com/Hariharan-M3860/Project1/assets/152625411/74dd6eab-aaff-417b-a41f-68651c9b76da)
+
+![Screenshot 2024-01-01 200542](https://github.com/Hariharan-M3860/Project1/assets/152625411/25bd720c-23ba-4dac-bcc9-59a50d7db1be)
+
+![Screenshot 2024-01-01 200555](https://github.com/Hariharan-M3860/Project1/assets/152625411/d8c86dc4-355d-40e2-a59d-400d2ba24569)
 
 ### Services page -
 ![Screenshot 2023-12-19 123203](https://github.com/Hariharan-M3860/Project1/assets/152625411/45b9d259-16cc-415e-9999-9bfd633d88b1)
