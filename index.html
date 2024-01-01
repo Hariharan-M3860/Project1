@@ -163,15 +163,10 @@
         document.getElementById('searchInput').addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault(); // Prevent form submission
-
                 // Trigger search functionality when Enter key is pressed
                 searchWithinPage();
 
-		    //New one:
-	document.getElementById('searchInput').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission
-            document.getElementById('searchReminder').style.display = 'block';
+	
             }
         });
     </script>
