@@ -13,7 +13,7 @@ https://nice-pebble-0ff150d00.4.azurestaticapps.net/index.html?#url
 ## Github live site URL:
 https://hariharan-m3860.github.io/Project1/
 
-**Demo Video** -  https://youtu.be/uQoPlJhqcEI
+**Demo Video** -  
 
 ## Azure technologies used for this project:
 - Static Web Apps
